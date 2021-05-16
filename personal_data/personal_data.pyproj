@@ -62,6 +62,7 @@
   <ItemGroup>
     <Content Include="app\templates\app\candidates.html" />
     <Content Include="app\templates\app\item_form.html" />
+    <Content Include="Procfile" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
