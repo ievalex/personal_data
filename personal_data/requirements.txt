@@ -1,3 +1,6 @@
 django >= 2.2.13, < 3.0
 gunicorn
 django-heroku
+djangorestframework
+apscheduler
+whitenoise

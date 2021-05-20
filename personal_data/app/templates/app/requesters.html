@@ -4,55 +4,64 @@
 
 <h2>{{ title }}.</h2>
 
-{% if is_avaliable %} <!-- Проверка доступа для пользователя к данной странице-->
+    {% if is_avaliable %} <!-- Проверка доступа для пользователя к данной странице-->
 
-    <div class="jumbotron">
-        <p class="lead">Персональные данные заявителей (потенциальных кандидатов).</p>
-        {% if requesters.count > 0 %}
+        <div class="jumbotron">
+            <p class="lead">Персональные данные заявителей (потенциальных кандидатов).</p>
+            {% if requesters.count > 0 %}
 
-        <div class="table-responsive" style="border:1px solid black">
-            <p>Список заявителей:</p>
+            <div class="table-responsive" style="border:1px solid black">
+                <p>Список заявителей:</p>
 
-            <table id="bootstrapdatatable" class="table-responsive table-striped table-bordered" width="100%">
-                <thead>
-                <th>id</th>
-                <th>Имя</th>
-                <th>Дата рождения</th>
-                <th>Паспорт</th>
-                <th>Телефон</th>
-                <th>Договор</th>
-                </thead>
-                <tbody>
-                    {% for requester in requesters %}
-                    <tr>
-                        <td>{{requester.id}}</td>
-                        <td>{{requester.name}}</td>
-                        <td>{{requester.birth_date}}</td>
-                        <td>{{requester.passport_no}}</td>
-                        <td>{{requester.phone_no}}</td>
-                        <td>{{requester.check_date}}</td>
-                        <td><a href="item_edit/{{requester.id}}">Изменить</a> | <a href="item_delete/{{requester.id}}">Удалить</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                <table id="bootstrapdatatable" class="table-responsive table-striped table-bordered" width="100%">
+                    <thead>
+                    <th>id</th>
+                    <th>Имя</th>
+                    <th>Дата рождения</th>
+                    <th>Паспорт</th>
+                    <th>Телефон</th>
+                    <th>Договор</th>
+                    </thead>
+                    <tbody>
+                        {% for requester in requesters %}
+                        <tr>
+                            <td>{{requester.id}}</td>
+                            <td>{{requester.name}}</td>
+                            <td>{{requester.birth_date}}</td>
+                            <td>{{requester.passport_no}}</td>
+                            <td>{{requester.phone_no}}</td>
+                            <td>{{requester.check_date}}</td>
+                            <td><a href="item_edit/{{requester.id}}">Изменить</a> | <a href="item_delete/{{requester.id}}">Удалить</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div>
+                <br/>
+                <p class="lead">Список пока пуст.</p>
+            </div>
+            {% endif %}
+            <br />
+            <div>
+                <a href="item_create/" class="btn btn-primary btn-large">Добавить заявителя</a>
+            </div>
         </div>
-        {% else %}
+        <div class="row">
+            <div class="col-md-4">
+                <p>
+                   Перейти к API для управления заявителями.
+                </p>
+                <p><a class="btn btn-default" href="{% url 'requesters_api' %}">REST API Requesters</a></p>
+            </div>
+        </div>
+    {% else %}
         <div>
             <br/>
-            <p class="lead">Список пока пуст.</p>
+            <p class="lead">У вас нет прав на просмотр данной страницы.</p>
         </div>
-        {% endif %}
-        <br />
-        <div>
-            <a href="item_create/" class="btn btn-primary btn-large">Добавить заявителя</a>
-        </div>
-    </div>
-{% else %}
-    <div>
-        <br/>
-        <p class="lead">У вас нет прав на просмотр данной страницы.</p>
-    </div>
-{% endif %}
+
+    {% endif %}
 
 {% endblock %}

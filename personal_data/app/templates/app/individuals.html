@@ -35,7 +35,7 @@
                         <td>{{individual.individual_no}}</td>
                         <td>{{individual.bank_account}}</td>
                         <td>{{individual.health_info}}</td>
-                        <td>{{individual.check_date}}</td>
+                        <td>{{individual.contract_date}}</td>
                         <td><a href="item_edit/{{individual.id}}">Изменить</a> | <a href="item_delete/{{individual.id}}">Удалить</a></td>
                     </tr>
                     {% endfor %}
@@ -53,10 +53,22 @@
             <a href="item_create/" class="btn btn-primary btn-large">Добавить индивидуального предпринимателя</a>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+                Перейти к API для управления индивидуальными предпринимателями.
+            </p>
+            <p><a class="btn btn-default" href="{% url 'individuals_api' %}">REST API Individuals</a></p>
+        </div>
+    </div>
 {% else %}
     <div>
         <br/>
         <p class="lead">У вас нет прав на просмотр данной страницы.</p>
     </div>
+
 {% endif %}
+
+
 {% endblock %}

@@ -53,11 +53,20 @@
             <a href="item_create/" class="btn btn-primary btn-large">Добавить кандидата</a>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+               Перейти к API для управления кандидатами.
+            </p>
+            <p><a class="btn btn-default" href="{% url 'candidates_api' %}">REST API Candidates</a></p>
+        </div>
+    </div>
     {% else %}
         <div>
             <br/>
             <p class="lead">У вас нет прав на просмотр данной страницы.</p>
         </div>
+    
     {% endif %}
 
 {% endblock %}

@@ -24,8 +24,11 @@ urlpatterns = [
     path('', views.home, name='home'),
     url(r'^', include(router.urls)),
     path('requesters/', views.requesters, name='requesters'),
+    path('api/requesters/', views.RequesterViewSet, name='requesters_api'),
     path('candidates/', views.candidates, name='candidates'),
+    path('api/candidates/', views.CandidateViewSet, name='candidates_api'),
     path('individuals/', views.individuals, name='individuals'),
+    path('api/individuals/', views.IndividualBusinessmanViewSet, name='individuals_api'),
     path('requesters/item_create/', views.requester_create, name='requester_create'),
     path('requesters/item_edit/<int:id>/', views.requester_edit),
     path('requesters/item_delete/<int:id>/', views.requester_delete),
@@ -42,7 +45,7 @@ urlpatterns = [
              authentication_form=forms.BootstrapAuthenticationForm,
              extra_context=
              {
-                 'title': 'Log in',
+                 'title': 'Авторизация пользователя',
                  'year' : datetime.now().year,
              }
          ),

@@ -25,7 +25,11 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{% url 'requesters' %}">Заявители</a></li>
                     <li><a href="{% url 'candidates' %}">Кандидаты</a></li>
-                    <li><a href="{% url 'individuals' %}">Индивидуальные предприниматели</a></li>
+                    <li><a href="{% url 'individuals' %}">ИП</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'admin:index' %}">Пользователи</a></li>
                 </ul>
                 {% include 'app/loginpartial.html' %}
             </div>
